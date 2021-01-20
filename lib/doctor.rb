@@ -6,19 +6,25 @@ class Doctor
     
     def initialize(name)
         @name = name
+        #self.save
         @@all << self
     end
-    
+
+    def self.all
+        @@all
+    end
     
     def appointments
         Appointment.all.select {|appointment| appointment.doctor == self}
     end    
     
-    def new_appointment
-        appointment.doctor = self
+    def new_appointment(date, patient)
+        Appointment.new(date, patient, self)
+        # appointment.doctor = self
     end
     
     def patients
-        Patient.all.select {|patient| patient.doctor == self}
+        appointments.map(&:patient)
+        #Patient.all.select {|patient| patient.doctor == self}
     end    
 end    

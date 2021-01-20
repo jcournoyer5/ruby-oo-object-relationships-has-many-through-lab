@@ -16,12 +16,12 @@ def self.all
     @@all
 end
 
-def genre
+# def genre
     
-end
+# end
 
-def artist
+# def artist
     
-end    
+# end    
 
 end
